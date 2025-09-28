@@ -1,0 +1,4 @@
+sisisin.hateblo.jp:
+  omit_domain: true
+default:
+  local_root: .

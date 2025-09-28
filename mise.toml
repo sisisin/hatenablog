@@ -1,0 +1,18 @@
+[env]
+BLOGSYNC_USERNAME='op://Personal/xkbayjqwxngvloekhojc5btyai/name'
+BLOGSYNC_PASSWORD='op://Personal/xkbayjqwxngvloekhojc5btyai/API Key'
+
+[vars]
+blog_domain='sisisin.hateblo.jp'
+
+[tasks.blogsync]
+run = "op run -- go tool blogsync"
+
+[tasks.draft]
+run = 'op run -- go tool blogsync post --draft --title="{{arg(name="title")}}" "{{vars.blog_domain}}" < /dev/null'
+
+[tasks.push]
+run = 'op run -- go tool blogsync push "{{arg(name="file_path")}}"'
+
+[tasks.remove]
+run = 'op run -- go tool blogsync remove "{{arg(name="file_path")}}"'
